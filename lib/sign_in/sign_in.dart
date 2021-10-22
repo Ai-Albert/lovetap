@@ -1,5 +1,7 @@
+import 'dart:ui';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_button/flutter_animated_button.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lovetap/custom_widgets/show_exception_alert_dialogue.dart';
 import 'package:lovetap/services/auth.dart';
@@ -98,69 +100,56 @@ class _SignInPageState extends State<SignInPage> with
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topRight,
-            end: Alignment.bottomLeft,
-            colors: [Color(int.parse('0xFFE53935')), Color(int.parse('0xFF00ACC1'))],
-          ),
+          color: Colors.white,
         ),
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(35.0),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(width: MediaQuery.of(context).size.width),
-              Text(
-                'Say hi to your new business card',
-                textAlign: TextAlign.center,
-                style: GoogleFonts.comfortaa(
-                  textStyle: TextStyle(
-                    color: Colors.white,
-                    fontSize: 32.0,
-                  ),
-                ),
-              ),
-              SizedBox(height: 50.0),
+              Image.asset('assets/love_letter.jpg'),
               TextField(
-                style: GoogleFonts.montserrat(textStyle: TextStyle(color: Colors.white)),
+                style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 14)),
                 decoration: InputDecoration(
                   labelText: 'Email',
-                  labelStyle: GoogleFonts.montserrat(textStyle: TextStyle(color: Colors.white38)),
+                  labelStyle: GoogleFonts.montserrat(),
                   errorText: showEmailError ? 'Email can\'t be empty' : null,
-                  errorStyle: TextStyle(color: Colors.white),
-                  enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white38)),
-                  focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                  errorStyle: TextStyle(color: Colors.red),
+                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(15)),
+                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(15)),
                 ),
-                cursorColor: Colors.white,
+                cursorColor: Colors.black,
                 controller: _emailController,
                 autocorrect: false,
                 keyboardType: TextInputType.emailAddress,
                 textInputAction: TextInputAction.next,
                 onChanged: (_email) => _updateState(),
               ),
-              SizedBox(height: 10.0),
+              SizedBox(height: 15.0),
               TextField(
-                style: GoogleFonts.montserrat(textStyle: TextStyle(color: Colors.white)),
+                style: GoogleFonts.montserrat(textStyle: TextStyle(fontSize: 14)),
                 decoration: InputDecoration(
                   labelText: 'Password',
-                  labelStyle: GoogleFonts.montserrat(textStyle: TextStyle(color: Colors.white38)),
+                  labelStyle: GoogleFonts.montserrat(),
                   errorText: showPasswordError ? 'Password can\'t be empty' : null,
-                  errorStyle: TextStyle(color: Colors.white),
-                  enabledBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white38)),
-                  focusedBorder: UnderlineInputBorder(borderSide: BorderSide(color: Colors.white)),
+                  errorStyle: TextStyle(color: Colors.red),
+                  enabledBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(15)),
+                  focusedBorder: OutlineInputBorder(borderSide: BorderSide(color: Colors.black), borderRadius: BorderRadius.circular(15)),
                 ),
-                cursorColor: Colors.white,
+                cursorColor: Colors.black,
                 controller: _passwordController,
                 autocorrect: false,
                 obscureText: true,
                 textInputAction: TextInputAction.done,
                 onChanged: (_password) => _updateState(),
               ),
-              SizedBox(height: 30.0),
-              // _signInButton(primaryButtonText, submitValid),
-              // _switchButton(secondaryButtonText),
-              // _forgotPasswordButton(_formState == FormType.signIn ? "Forgot your password?" : " "),
+              SizedBox(height: 50.0),
+              _signInButton(primaryButtonText, submitValid),
+              SizedBox(height: 15),
+              _switchButton(secondaryButtonText),
+              _forgotPasswordButton(_formState == FormType.signIn ? "Forgot your password?" : " "),
             ],
           ),
         ),
@@ -168,36 +157,50 @@ class _SignInPageState extends State<SignInPage> with
     );
   }
 
-  // Widget _signInButton(String primaryButtonText, bool submitValid) {
-  //   return BouncingButton(
-  //     child: OutlinedTextButton(
-  //       width: MediaQuery.of(context).size.width - 40 - 150,
-  //       text: primaryButtonText,
-  //     ),
-  //     onPress: submitValid ? submit : () {},
-  //   );
-  // }
-  //
-  // Widget _switchButton(String secondaryButtonText) {
-  //   return BouncingButton(
-  //     child: RegularButton(
-  //       width: MediaQuery.of(context).size.width - 40,
-  //       text: secondaryButtonText,
-  //     ),
-  //     onPress: !_loading ? changeFormType : () {},
-  //   );
-  // }
-  //
-  // Widget _forgotPasswordButton(String text) {
-  //   return BouncingButton(
-  //     child: RegularButton(
-  //       width: MediaQuery.of(context).size.width - 40,
-  //       text: text,
-  //     ),
-  //     onPress: text == " " ? () {} : () => Navigator.of(context).push(MaterialPageRoute(
-  //       builder: (context) => PasswordRecovery(),
-  //     )),
-  //   );
-  // }
+  Widget _signInButton(String primaryButtonText, bool submitValid) {
+    return AnimatedButton(
+      height: 50,
+      width: 200,
+      text: primaryButtonText,
+      isReverse: true,
+      selectedTextColor: Colors.white,
+      transitionType: TransitionType.LEFT_TO_RIGHT,
+      selectedBackgroundColor: Colors.red,
+      //textStyle: submitTextStyle,
+      backgroundColor: Colors.black,
+      borderColor: Colors.white,
+      borderRadius: 15,
+      borderWidth: 2,
+      onPress: submitValid ? submit : () {},
+    );
+  }
+
+  Widget _switchButton(String secondaryButtonText) {
+    return TextButton(
+      child: Text(
+        secondaryButtonText,
+        style: TextStyle(
+          color: Colors.black,
+        ),
+      ),
+      style: ButtonStyle(overlayColor: MaterialStateProperty.all(Colors.transparent)),
+      onPressed: !_loading ? changeFormType : () {},
+    );
+  }
+
+  Widget _forgotPasswordButton(String text) {
+    return TextButton(
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.black,
+        ),
+      ),
+      style: ButtonStyle(overlayColor: MaterialStateProperty.all(Colors.transparent)),
+      onPressed: text == " " ? () {} : () => Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => PasswordRecovery(),
+      )),
+    );
+  }
 }
 
