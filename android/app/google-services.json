@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "428464975829",
+    "project_id": "lovetap-3efcd",
+    "storage_bucket": "lovetap-3efcd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:428464975829:android:bd153e98c6c84937f5d75c",
+        "android_client_info": {
+          "package_name": "com.albertai.lovetap"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "428464975829-0q6tb22gtp9b2fq39tjbcat88l6m8akf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD0DsvilrV5OwofxRAk1XSk_dVMfrjqbE4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "428464975829-0q6tb22gtp9b2fq39tjbcat88l6m8akf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

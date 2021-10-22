@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>428464975829-chtu3jhp2eb7lptpnsnajtvhe2ce5kas.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.428464975829-chtu3jhp2eb7lptpnsnajtvhe2ce5kas</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAsm28KlrxRywvWPxWMJ07Wr5uVc0XL4e0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>428464975829</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.albertai.lovetap</string>
+	<key>PROJECT_ID</key>
+	<string>lovetap-3efcd</string>
+	<key>STORAGE_BUCKET</key>
+	<string>lovetap-3efcd.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:428464975829:ios:82e04fb2e152bfe8f5d75c</string>
+</dict>
+</plist>
